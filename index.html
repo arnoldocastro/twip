@@ -34,8 +34,8 @@
 		inputYawrate = document.getElementById('yawRate').value;
 		
 		validSpeed=closest(inputSpeed,speedArray);
-		validPitch=closest(inputPitch,yawRateArray);
-		validYaw=closest(inputYawrate,pitchArray);
+		validPitch=closest(inputPitch,pitchArray);
+		validYaw=closest(inputYawrate,yawRateArray);
 		
           document.getElementById("ValidSpeedText").innerHTML = ("Validated Speed = \r\n").concat(validSpeed);
 		  document.getElementById("ValidPitchText").innerHTML = ("Validated Pitch = \r\n").concat(validPitch);
