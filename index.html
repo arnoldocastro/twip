@@ -42,7 +42,7 @@
 		  document.getElementById("ValidyawRateText").innerHTML = ("Validated Yaw rate = ").concat(validYaw);
 		
 		var newfile=buildFilename(validSpeed,validYaw,validPitch);
-		updatePlots(filename);
+		updatePlots(newfile);
 		
         }
 		
@@ -64,7 +64,7 @@
 		
 		function buildFilename(speed,yawRate,pitch){
 		
-		filename = "vx"+speed+"betapd"+yawRate+"thetapi"+pitch;
+		var filename = "vx"+speed+"betapd"+yawRate+"thetapi"+pitch;
 		//document.getElementById("fileNameText").innerHTML = filename;
 		//document.write(filename)
 		
