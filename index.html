@@ -41,7 +41,7 @@
 		  document.getElementById("ValidPitchText").innerHTML = ("Validated Pitch = \r\n").concat(validPitch);
 		  document.getElementById("ValidyawRateText").innerHTML = ("Validated Yaw rate = ").concat(validYaw);
 		
-		var newfile=buildFilename(validSpeed,validPitch,validYaw);
+		var newfile=buildFilename(validSpeed,,validYaw,validPitch);
 		updatePlots(filename);
 		
         }
