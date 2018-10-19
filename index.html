@@ -37,9 +37,9 @@
 		validPitch=closest(inputPitch,pitchArray);
 		validYaw=closest(inputYawrate,yawRateArray);
 		
-          document.getElementById("ValidSpeedText").innerHTML = ("Validated Speed = \r\n").concat(validSpeed);
-		  document.getElementById("ValidPitchText").innerHTML = ("Validated Pitch = \r\n").concat(validPitch);
-		  document.getElementById("ValidyawRateText").innerHTML = ("Validated Yaw rate = ").concat(validYaw);
+          //document.getElementById("ValidSpeedText").innerHTML = ("Validated Speed = \r\n").concat(validSpeed);
+		  //document.getElementById("ValidPitchText").innerHTML = ("Validated Pitch = \r\n").concat(validPitch);
+		  //document.getElementById("ValidyawRateText").innerHTML = ("Validated Yaw rate = ").concat(validYaw);
 		
 		var newfile=buildFilename(validSpeed,validYaw,validPitch);
 		updatePlots(newfile);
@@ -74,19 +74,22 @@
 		
 		function updatePlots(filename){
 		
-		document.getElementById("Yawrateplot").src = "YawRate"+filename+".png";
-		document.getElementById("Rightwheel").src = "RightWheel"+filename+".png";
-		document.getElementById("Leftwheel").src = "LeftWheel"+filename+".png";
-		document.getElementById("Longslip").src = "LongSlip"+filename+".png";
-		document.getElementById("Pitch").src = "Pitch"+filename+".png";
-		document.getElementById("Latspeed").src = "LatSpeed"+filename+".png";
+		var simID="2Wheelmu"
+		
+		document.getElementById("Yawrateplot").src = simID+"_"+"YawRate"+filename+".png";
+		document.getElementById("Rightwheel").src = simID+"_"+"RightWheel"+filename+".png";
+		document.getElementById("Leftwheel").src = simID+"_"+"LeftWheel"+filename+".png";
+		document.getElementById("Longslip").src = simID+"_"+"LongSlip"+filename+".png";
+		document.getElementById("Pitch").src = simID+"_"+"Pitch"+filename+".png";
+		document.getElementById("Latspeed").src = simID+"_"+"LatSpeed"+filename+".png";
+		document.getElementById("Speed").src = simID+"_"+"Speed"+filename+".png";
 		
 		}
 		
 		
-		speedArray = [1, 2, 3, 4, 6];
-		yawRateArray = [0, 1, 2];
-		pitchArray = [5, 7];
+		speedArray = [0.4000,0.6000,0.8000,1.0000,1.2000,1.4000,1.6000,1.8000,2.0000,2.2000,2.4000,2.6000,2.8000,3.0000,3.2000,3.4000,3.6000,3.8000,4.0000,4.2000,4.4000,4.6000,4.8000,5.0000,5.2000,5.4000,5.6000,5.8000,6.0000];
+		yawRateArray = [0,0.4000,0.8000,1.2000,1.6000,2.0000,2.4000,2.8000,3.2000];
+		pitchArray = [0,2.5000,5.0000,7.5000,10.0000];
 		
       </script>
       
@@ -97,13 +100,13 @@
 
 	  
 	  
-	  Initial speed = <input id="speed" type="number" size="2" step="0.1" min="0" max="7" onchange="updateTextInput();" >
+	  Initial speed = <input id="speed" type="number" size="2" step="0.4" min="0" max="7" oninput="updateTextInput();" >
 	
 
-	Initial pitch = <input id="pitch" type="number" size="2" step="0.1" min="0" max="7" onchange="updateTextInput();" >
+	Initial pitch = <input id="pitch" type="number" size="2" step="2.5" min="0" max="10" oninput="updateTextInput();" >
 	  
 	  
-	  Commanded yaw rate = <input id="yawRate" type="number" size="2" step="0.1" min="0" max="7" onchange="updateTextInput();" >
+	  Commanded yaw rate = <input id="yawRate" type="number" size="2" step="0.4" min="0" max="3.2" oninput="updateTextInput();" >
 	  
 	  <p>
 	  <span id="ValidSpeedText"></span>
@@ -117,14 +120,20 @@
 	 
 </div>  
 
+
+
 <div class="plots" id="plotspace">
-	  
+
+	  <h2>
+
+Two-wheel reduced friction turning simulations</h2>
 	    <img src = "" alt = "Yaw rate" id= "Yawrateplot"/>
 		<img src = "" alt = "Right wheel normal force" id= "Rightwheel"/>
 		<img src = "" alt = "Left wheel normal force" id= "Leftwheel"/>
 		<img src = "" alt = "Longitudinal slip" id= "Longslip"/>
 		<img src = "" alt = "Pitch angle" id= "Pitch"/>
 		<img src = "" alt = "Lateral speed" id= "Latspeed"/>
+		<img src = "" alt = "Speed" id= "Speed"/>
 </div>	  
 
 	  
